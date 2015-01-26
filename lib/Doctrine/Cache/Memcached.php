@@ -42,6 +42,7 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
      * constructor
      *
      * @param array $options        associative array of cache driver options
+     * @throws Doctrine_Cache_Exception
      */
     public function __construct($options = array())
     {
