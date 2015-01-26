@@ -88,6 +88,9 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
      */
     protected function _doFetch($id, $testCacheValidity = true)
     {
+        if (false == $this->_memcached->getOption(Memcached::OPT_BINARY_PROTOCOL)) {
+            $id = str_replace(' ', '_', $id);
+        }
         return $this->_memcached->get($id);
     }
 
@@ -99,6 +102,9 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
      */
     protected function _doContains($id)
     {
+        if (false == $this->_memcached->getOption(Memcached::OPT_BINARY_PROTOCOL)) {
+            $id = str_replace(' ', '_', $id);
+        }
         return (bool) $this->_memcached->get($id);
     }
 
@@ -113,7 +119,9 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
      */
     protected function _doSave($id, $data, $lifeTime = 0)
     {
-
+        if (false == $this->_memcached->getOption(Memcached::OPT_BINARY_PROTOCOL)) {
+            $id = str_replace(' ', '_', $id);
+        }
 
         return $this->_memcached->set($id, $data, $lifeTime);
     }
@@ -127,6 +135,9 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
      */
     protected function _doDelete($id)
     {
+        if (false == $this->_memcached->getOption(Memcached::OPT_BINARY_PROTOCOL)) {
+            $id = str_replace(' ', '_', $id);
+        }
         return $this->_memcached->delete($id);
     }
 
