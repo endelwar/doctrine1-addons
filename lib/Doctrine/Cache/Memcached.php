@@ -59,9 +59,12 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
             }
             $this->setOption('servers', $value);
         }
-        if (!isset($options['persistent_id'])) {
+        if (!array_key_exists('persistent', $options)) {
             $this->_memcached = new Memcached();
         } else {
+            if (!array_key_exists('persistent_id', $options)) {
+                throw new Doctrine_Cache_Exception('In order to use a persistent connection, a "persistent_id" option must be set.');
+            }
             $this->_memcached = new Memcached($options['persistent_id']);
         }
 
