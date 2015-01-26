@@ -1,0 +1,22 @@
+{
+  "name": "endelwar/doctrine1-addons",
+  "description": "Some missing classes and utilities for Doctrine 1.2",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Manuel Dalla Lana",
+      "email": "endelwar@aregar.it"
+    }
+  ],
+  "require": {
+    "php": ">=5.2.3",
+    "ext-pdo": "*"
+  },
+  "require-dev": {
+    "drak/doctrine1": "dev-master"
+  },
+  "autoload": {
+    "psr-0": { "Doctrine_": "lib/" }
+  }
+}
