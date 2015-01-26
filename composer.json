@@ -10,10 +10,6 @@
     }
   ],
   "require": {
-    "php": ">=5.2.3",
-    "ext-pdo": "*"
-  },
-  "require-dev": {
     "drak/doctrine1": "dev-master"
   },
   "autoload": {
