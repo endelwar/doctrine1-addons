@@ -76,6 +76,12 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
             $this->_memcached->setOption(Memcached::OPT_COMPRESSION, false);
         }
 
+        if (true == $this->_options['binaryprotocol']) {
+            $this->_memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, true);
+        } else {
+            $this->_memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, false);
+        }
+
         foreach ($this->_options['servers'] as $server) {
             if (!array_key_exists('port', $server)) {
                 $server['port'] = 11211;
