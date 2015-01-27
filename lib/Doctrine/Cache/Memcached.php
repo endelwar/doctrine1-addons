@@ -46,7 +46,7 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
      */
     public function __construct($options = array())
     {
-        if ( ! extension_loaded('memcached')) {
+        if (!extension_loaded('memcached')) {
             throw new Doctrine_Cache_Exception('In order to use Memcached driver, the memcached extension must be loaded.');
         }
         parent::__construct($options);
@@ -70,13 +70,13 @@ class Doctrine_Cache_Memcached extends Doctrine_Cache_Driver
 
         $this->_memcached->setOption(Memcached::OPT_LIBKETAMA_COMPATIBLE, true);
 
-        if (true == $this->_options['compression']) {
+        if (isset($this->_options['compression']) && (true == $this->_options['compression'])) {
             $this->_memcached->setOption(Memcached::OPT_COMPRESSION, true);
         } else {
             $this->_memcached->setOption(Memcached::OPT_COMPRESSION, false);
         }
 
-        if (true == $this->_options['binaryprotocol']) {
+        if (isset($this->_options['binaryprotocol']) && (true == $this->_options['binaryprotocol'])) {
             $this->_memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, true);
         } else {
             $this->_memcached->setOption(Memcached::OPT_BINARY_PROTOCOL, false);
