@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "drak/doctrine1": "dev-master"
+    "lexpress/doctrine1": "1.3.*"
   },
   "autoload": {
     "psr-0": { "Doctrine_": "lib/" }
